@@ -8,10 +8,10 @@ export default function InputHeaderComponent() {
       <input
         type="text"
         placeholder="Search"
-        className="w-full rounded-3xl py-1 pl-2 bg-neutral-600 text-white outline-none"
+        className="w-full rounded-3xl px-4 py-2 bg-bgInput text-input font-normal text-14 outline-none"
       />
-      <button className="bg-transparent absolute top-1 right-2 outline-none">
-        <Search />
+      <button className="bg-transparent absolute right-4 outline-none">
+        <Search color="white" />
       </button>
     </>
   )

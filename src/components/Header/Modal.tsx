@@ -13,7 +13,7 @@ export default function ModalComponent() {
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault()
     const response = await GET(cep)
-    return response
+    console.log(response.ok)
   }
   return (
     <SheetContent>

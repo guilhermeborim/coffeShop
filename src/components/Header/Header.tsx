@@ -11,17 +11,19 @@ interface HeaderProps {
 }
 export default function HeaderComponent({ address, imageUrl }: HeaderProps) {
   return (
-    <header className="bg-neutral-500 px-10 py-5">
+    <header className="bg-gradient-to-l from-bgGradiantOne to-bgGradiantTwo px-10 py-5">
       <section className="flex justify-between items-center">
         <article className="flex flex-col gap-1">
-          <span>Location</span>
+          <span className="text-12 text-whiteB font-normal">Location</span>
 
           {address ? (
-            <h1>{address}</h1>
+            <h1 className="text-14 text-whiteD font-semibold">{address}</h1>
           ) : (
             <Sheet>
               <SheetTrigger asChild>
-                <button>Insira seu endereço</button>
+                <button className="text-14 text-whiteD font-semibold">
+                  Insira seu endereço
+                </button>
               </SheetTrigger>
               <ModalComponent />
             </Sheet>
@@ -29,7 +31,7 @@ export default function HeaderComponent({ address, imageUrl }: HeaderProps) {
         </article>
         <AvatarProfileComponent imageUrl={imageUrl} />
       </section>
-      <section className="relative flex items-center bg-neutral-600 rounded-3xl mt-4">
+      <section className="relative flex items-center rounded-3xl mt-7">
         <InputHeaderComponent />
       </section>
     </header>
