@@ -1,9 +1,9 @@
 import Container from '@/components/Container'
 import AppProvider from '@/contexts'
+import { ClerkProvider } from '@clerk/nextjs'
 import type { Metadata } from 'next'
 import { Sora } from 'next/font/google'
 import './globals.css'
-
 const sora = Sora({
   subsets: ['latin'],
   weight: ['100', '200', '300', '400', '500', '600', '700', '800'],
@@ -19,12 +19,14 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="pt-br">
-      <body className={sora.className}>
-        <Container>
-          <AppProvider>{children}</AppProvider>
-        </Container>
-      </body>
-    </html>
+    <ClerkProvider>
+      <html lang="pt-br">
+        <body className={sora.className}>
+          <Container>
+            <AppProvider>{children}</AppProvider>
+          </Container>
+        </body>
+      </html>
+    </ClerkProvider>
   )
 }

@@ -1,15 +1,10 @@
-'use client'
-
 import { useCepUser } from '@/contexts/cep'
 import { Sheet, SheetTrigger } from '../ui/sheet'
 import AvatarProfileComponent from './AvatarProfile'
 import InputHeaderComponent from './InputHeader'
 import ModalComponent from './Modal'
 
-interface HeaderProps {
-  imageUrl: string
-}
-export default function HeaderComponent({ imageUrl }: HeaderProps) {
+export default function HeaderComponent() {
   const { address } = useCepUser()
   return (
     <header className="bg-gradient-to-l from-bgGradiantOne to-bgGradiantTwo px-10 py-5">
@@ -32,7 +27,7 @@ export default function HeaderComponent({ imageUrl }: HeaderProps) {
             </Sheet>
           )}
         </article>
-        <AvatarProfileComponent imageUrl={imageUrl} />
+        <AvatarProfileComponent />
       </section>
       <section className="relative flex items-center rounded-3xl mt-7">
         <InputHeaderComponent />

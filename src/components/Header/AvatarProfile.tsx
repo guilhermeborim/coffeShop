@@ -1,20 +1,16 @@
-'use client'
-import Image from 'next/image'
+import { UserButton } from '@clerk/nextjs'
 
-interface AvatarProfileProps {
-  imageUrl: string
-}
-export default function AvatarProfileComponent({
-  imageUrl,
-}: AvatarProfileProps) {
+export default function AvatarProfileComponent() {
   return (
-    <Image
-      src={imageUrl}
-      alt="Avatar Profile"
-      width={0}
-      height={0}
-      className="w-11 h-11"
-      priority
+    <UserButton
+      appearance={{
+        elements: {
+          userButtonAvatarBox: {
+            width: '44px',
+            height: '44px',
+          },
+        },
+      }}
     />
   )
 }
