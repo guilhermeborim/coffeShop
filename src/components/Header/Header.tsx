@@ -1,15 +1,16 @@
 'use client'
 
+import { useCepUser } from '@/contexts/cep'
 import { Sheet, SheetTrigger } from '../ui/sheet'
 import AvatarProfileComponent from './AvatarProfile'
 import InputHeaderComponent from './InputHeader'
 import ModalComponent from './Modal'
 
 interface HeaderProps {
-  address?: string
   imageUrl: string
 }
-export default function HeaderComponent({ address, imageUrl }: HeaderProps) {
+export default function HeaderComponent({ imageUrl }: HeaderProps) {
+  const { address } = useCepUser()
   return (
     <header className="bg-gradient-to-l from-bgGradiantOne to-bgGradiantTwo px-10 py-5">
       <section className="flex justify-between items-center">
@@ -17,7 +18,9 @@ export default function HeaderComponent({ address, imageUrl }: HeaderProps) {
           <span className="text-12 text-whiteB font-normal">Location</span>
 
           {address ? (
-            <h1 className="text-14 text-whiteD font-semibold">{address}</h1>
+            <h1 className="text-14 text-whiteD font-semibold">
+              {address.locagradouro}, {address.localidade}
+            </h1>
           ) : (
             <Sheet>
               <SheetTrigger asChild>

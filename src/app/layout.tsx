@@ -1,4 +1,5 @@
 import Container from '@/components/Container'
+import AppProvider from '@/contexts'
 import type { Metadata } from 'next'
 import { Sora } from 'next/font/google'
 import './globals.css'
@@ -20,7 +21,9 @@ export default function RootLayout({
   return (
     <html lang="pt-br">
       <body className={sora.className}>
-        <Container>{children}</Container>
+        <Container>
+          <AppProvider>{children}</AppProvider>
+        </Container>
       </body>
     </html>
   )
