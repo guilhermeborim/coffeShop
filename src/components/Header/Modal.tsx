@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 'use client'
 import GET from '@/app/api/cep/routes'
 import { FormEvent, useState } from 'react'
@@ -6,21 +5,22 @@ import { SheetContent } from '../ui/sheet'
 
 export default function ModalComponent() {
   const [cep, setCep] = useState<string | null>(null)
-  function handleChange(e: any) {
+
+  function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
     setCep(e.target.value)
   }
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault()
-    const response = await GET(cep)
-    console.log(response.ok)
+    const data = await GET(cep)
+    console.log(data)
   }
   return (
     <SheetContent>
-      <form onSubmit={handleSubmit}>
+      <form>
         <div>
           <input type="text" placeholder="cep" onChange={handleChange} />
-          <input type="submit" placeholder="Enviar" />
+          <input type="submit" placeholder="Enviar" onClick={handleSubmit} />
         </div>
       </form>
     </SheetContent>
