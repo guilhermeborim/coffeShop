@@ -1,9 +1,12 @@
 import Container from '@/components/Container'
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
+import { Sora } from 'next/font/google'
 import './globals.css'
 
-const inter = Inter({ subsets: ['latin'] })
+const sora = Sora({
+  subsets: ['latin'],
+  weight: ['100', '200', '300', '400', '500', '600', '700', '800'],
+})
 
 export const metadata: Metadata = {
   title: 'Coffe Shop',
@@ -16,7 +19,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-br">
-      <body className={inter.className}>
+      <body className={sora.className}>
         <Container>{children}</Container>
       </body>
     </html>
