@@ -22,6 +22,7 @@ export default function ProductListComponent({ products }: ProductListProps) {
               price={product.price}
               rating={product.rating}
               key={product.id}
+              slug={product.slug}
             />
           ))
         : productByCategory.map((product) => (
@@ -31,6 +32,7 @@ export default function ProductListComponent({ products }: ProductListProps) {
               price={product.price}
               rating={product.rating}
               key={product.id}
+              slug={product.slug}
             />
           ))}
     </article>

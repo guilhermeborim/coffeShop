@@ -3,7 +3,6 @@ import FooterComponent from '@/components/Footer/Footer'
 import HeaderComponent from '@/components/Header/Header'
 import ProductListComponent from '@/components/Products/ProductList'
 import { prisma } from '@/lib/prisma'
-
 export default async function Home() {
   const categorys = await prisma.category.findMany({})
   const products = await prisma.product.findMany({})

@@ -1,15 +1,18 @@
 import { Plus, Star } from 'lucide-react'
+import Link from 'next/link'
 
 interface ProductProps {
   name: string
   price: string
   rating: number
   image: string
+  slug: string
 }
 
 export default function ProductComponent({
   image,
   name,
+  slug,
   price,
   rating,
 }: ProductProps) {
@@ -33,9 +36,11 @@ export default function ProductComponent({
       <div className="mt-3 px-2">
         <div className="flex items-center justify-between mt-2">
           <h2 className="font-semibold text-18 text-textPrice">$ {price}</h2>
-          <button className="bg-orange rounded-xl p-2">
-            <Plus color="white" />
-          </button>
+          <Link href={`/product/${slug}`}>
+            <button className="bg-orange rounded-xl p-2">
+              <Plus color="white" />
+            </button>
+          </Link>
         </div>
       </div>
     </div>

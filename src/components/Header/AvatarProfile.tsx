@@ -9,6 +9,9 @@ export default function AvatarProfileComponent() {
             width: '44px',
             height: '44px',
           },
+          card: {
+            margin: '12px',
+          },
         },
       }}
     />
