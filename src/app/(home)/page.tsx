@@ -1,24 +1,20 @@
-import CategoryItemComponent from '@/components/Categorys/CategoryItem'
+import CategoryListComponent from '@/components/Categorys/CategoryList'
 import FooterComponent from '@/components/Footer/Footer'
 import HeaderComponent from '@/components/Header/Header'
 import ProductListComponent from '@/components/Products/ProductList'
+import { prisma } from '@/lib/prisma'
 
-export default function Home() {
+export default async function Home() {
+  const categorys = await prisma.category.findMany({})
+  const products = await prisma.product.findMany({})
   return (
     <main>
-      <HeaderComponent imageUrl="https://www.svgrepo.com/show/384674/account-avatar-profile-user-11.svg" />
+      <HeaderComponent />
       <section className="px-10 py-5 bg-backgroundMain">
         <article>
-          <nav>
-            <ul className="flex justify-between flex-1 overflow-x-auto gap-2 ">
-              <CategoryItemComponent name="Capuccino" />
-              <CategoryItemComponent name="Machiato" />
-              <CategoryItemComponent name="latte" />
-              <CategoryItemComponent name="Americano" />
-            </ul>
-          </nav>
+          <CategoryListComponent categorys={categorys} />
         </article>
-        <ProductListComponent />
+        <ProductListComponent products={products} />
       </section>
       <FooterComponent />
     </main>

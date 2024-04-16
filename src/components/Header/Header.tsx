@@ -1,3 +1,4 @@
+'use client'
 import { useCepUser } from '@/contexts/cep'
 import { Sheet, SheetTrigger } from '../ui/sheet'
 import AvatarProfileComponent from './AvatarProfile'
