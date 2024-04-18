@@ -13,11 +13,12 @@ export default function HeaderComponent() {
         <article className="flex flex-col gap-1">
           <span className="text-12 text-whiteB font-normal">Location</span>
 
-          {address ? (
+          {address && (
             <h1 className="text-14 text-whiteD font-semibold">
               {address.locagradouro}, {address.localidade}
             </h1>
-          ) : (
+          )}
+          {!address && (
             <Sheet>
               <SheetTrigger asChild>
                 <button className="text-14 text-whiteD font-semibold">
