@@ -1,5 +1,5 @@
 'use client'
-import { useCategory } from '@/contexts/category'
+import { ProductsFindByCategory } from '@/hooks/productsByCategory/productsByCategory'
 import { Product } from '@prisma/client'
 import ProductComponent from './Product'
 
@@ -8,32 +8,16 @@ interface ProductListProps {
 }
 
 export default function ProductListComponent({ products }: ProductListProps) {
-  const { category } = useCategory()
-  const productByCategory = products.filter(
-    (product) => product.categoryId === category?.categoryId,
-  )
+  const { productByCategory } = ProductsFindByCategory({ products })
+
   return (
     <article className="mt-6 grid grid-cols-2 gap-x-4 gap-y-4 mb-[72px]">
       {productByCategory.length < 1 &&
         products.map((product) => (
-          <ProductComponent
-            image={product.image}
-            name={product.name}
-            price={product.price}
-            rating={product.rating}
-            key={product.id}
-            slug={product.slug}
-          />
+          <ProductComponent products={product} key={product.id} />
         ))}
       {productByCategory.map((product) => (
-        <ProductComponent
-          image={product.image}
-          name={product.name}
-          price={product.price}
-          rating={product.rating}
-          key={product.id}
-          slug={product.slug}
-        />
+        <ProductComponent products={product} key={product.id} />
       ))}
     </article>
   )

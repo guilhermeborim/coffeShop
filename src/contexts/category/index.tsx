@@ -22,7 +22,7 @@ const CategoryProvider = ({ children }: { children: React.ReactNode }) => {
       {children}
     </CategoryContext.Provider>
   )
-}
+} 
 
 const useCategory = () => {
   const context = useContext(CategoryContext)

@@ -1,3 +1,4 @@
+import CategoryItemComponent from '@/components/Categorys/CategoryItem'
 import CategoryListComponent from '@/components/Categorys/CategoryList'
 import FooterComponent from '@/components/Footer/Footer'
 import HeaderComponent from '@/components/Header/Header'
@@ -13,7 +14,9 @@ export default async function Home() {
       <HeaderComponent />
       <section className="px-10 py-5 bg-backgroundMain">
         <article>
-          <CategoryListComponent categorys={categorys} />
+          <CategoryListComponent>
+            <CategoryItemComponent categorys={categorys} />
+          </CategoryListComponent>
         </article>
         <ProductListComponent products={products} />
       </section>
