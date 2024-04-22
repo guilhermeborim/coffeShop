@@ -15,7 +15,7 @@ export default function HeaderComponent() {
 
           {address && (
             <h1 className="text-14 text-whiteD font-semibold">
-              {address.locagradouro}, {address.localidade}
+              {address.logradouro}, {address.localidade}
             </h1>
           )}
           {!address && (

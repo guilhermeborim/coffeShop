@@ -17,7 +17,11 @@ export default async function ProductName({ params }: params) {
 
   return (
     <main className="bg-backgroundMain">
-      <HeaderDetailOrderComponent name="Detail" icon={HearthDetail} />
+      <HeaderDetailOrderComponent
+        name="Detail"
+        icon={HearthDetail}
+        className="px-10 py-5 flex items-center justify-between"
+      />
       <ProductDetailComponent products={productByName} />
     </main>
   )

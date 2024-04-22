@@ -76,7 +76,7 @@ export default function ProductDetailComponent({
           </article>
         </section>
       </section>
-      <FooterDetailComponent price={products?.price} />
+      <FooterDetailComponent price={products?.price} slug={products.slug} />
     </>
   )
 }

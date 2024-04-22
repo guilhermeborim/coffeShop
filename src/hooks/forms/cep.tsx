@@ -31,7 +31,7 @@ export const FindUserCepByApi = () => {
       const { localidade, logradouro } = await GET(value.cep)
 
       setAddress({
-        locagradouro: logradouro,
+        logradouro,
         localidade,
       })
     } catch (e: unknown) {

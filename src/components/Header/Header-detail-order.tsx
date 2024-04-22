@@ -8,18 +8,20 @@ import Link from 'next/link'
 interface HeaderDetailOrderProps {
   name: string
   icon?: StaticImport
+  className?: string
 }
 
 export default function HeaderDetailOrderComponent({
   icon,
   name,
+  className,
 }: HeaderDetailOrderProps) {
   return (
-    <header className="px-10 py-5 flex items-center justify-between">
+    <header className={className}>
       <Link href={'/'}>
         <ChevronLeft />
       </Link>
-      <div>{name}</div>
+      <div className="m-auto text-textName font-semibold text-18">{name}</div>
       {icon && <Image src={icon} alt="Hearth" width={24} height={24} />}
     </header>
   )

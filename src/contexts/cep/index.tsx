@@ -5,7 +5,7 @@ import { createContext, useContext, useState } from 'react'
 
 interface CepProps {
   localidade: string
-  locagradouro: string
+  logradouro: string
 }
 
 type CepContextProps = {
