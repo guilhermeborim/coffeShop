@@ -8,7 +8,6 @@ import Image from 'next/image'
 import { useState } from 'react'
 import TabsPaymentComponent from './TabsPayment'
 
-// TODO: tentar separar os componentes postgres://postgres.jpijsarhjmngsymhjaee:R1v1a7nexlenPfnV@aws-0-sa-east-1.pooler.supabase.com:5432/postgres
 
 type OrderContentProps = {
   orderProduct: Product | null
