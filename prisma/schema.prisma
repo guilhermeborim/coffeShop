@@ -19,10 +19,10 @@ model Product {
   name String
   slug String
   description String
-  price String
+  price Float
   image String
   rating Float
-  reviews String
+  reviews Int
   categoryId String
   category Category @relation(fields: [categoryId], references: [id])
 }
@@ -30,6 +30,6 @@ model Product {
 model Category {
   id String @id @default(cuid())
   name String
-  slug String 
+  slug String
   products Product[]
 }

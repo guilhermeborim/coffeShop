@@ -1,26 +1,19 @@
-import CategoryItemComponent from '@/components/Categorys/CategoryItem'
-import CategoryListComponent from '@/components/Categorys/CategoryList'
-import FooterComponent from '@/components/Footer/Footer'
-import HeaderComponent from '@/components/Header/Header'
-import ProductListComponent from '@/components/Products/ProductList'
-import { CategorysDatabase } from '@/hooks/database/categorys'
-import { ProductsDatabase } from '@/hooks/database/products'
+import { BadgeCategoryList } from '@/components/badge/badgeCategoryList'
+import { Footer } from '@/components/footer'
+import { HeaderHome } from '@/components/header/headerHome'
+import { ProductRoot } from '@/components/product'
 
-export default async function Home() {
-  const { products } = await ProductsDatabase()
-  const { categorys } = await CategorysDatabase()
+export default function Home() {
   return (
-    <main>
-      <HeaderComponent />
-      <section className="px-10 py-5 bg-backgroundMain">
-        <article>
-          <CategoryListComponent>
-            <CategoryItemComponent categorys={categorys} />
-          </CategoryListComponent>
-        </article>
-        <ProductListComponent products={products} />
-      </section>
-      <FooterComponent />
-    </main>
+    <>
+      <HeaderHome />
+      <main className="bg-backgroundMain -mx-[30px]">
+        <BadgeCategoryList />
+        <section className="mx-[30px]">
+          <ProductRoot />
+        </section>
+      </main>
+      <Footer />
+    </>
   )
 }

@@ -10,6 +10,10 @@ const config = {
   ],
   prefix: '',
   theme: {
+    screens: {
+      mobile: { max: '640px' },
+      tablet: { min: '641px', max: '1007px' },
+    },
     fontSize: {
       10: '0.625rem',
       12: '0.75rem',
