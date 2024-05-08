@@ -2,6 +2,7 @@
 import { ProductsFindByCategory } from '@/hooks/productsByCategory/productsByCategory'
 import { Product } from '@prisma/client'
 import { ProductItem } from './productItem'
+import { ProductListContainer } from './productListContainer'
 
 interface productsProps {
   products: Product[]
@@ -11,19 +12,18 @@ export const ProductList = ({ products }: productsProps) => {
 
   return (
     <>
-      {productByCategory && (
-        <section className="grid grid-cols-4 justify-items-center gap-y-3 mobile:grid-cols-2 tablet:grid-cols-3 pb-6">
-          {productByCategory.map((product) => (
-            <ProductItem products={product} key={product.id} />
-          ))}
-        </section>
-      )}
-      {productByCategory.length < 1 && (
-        <section className="grid grid-cols-4 justify-items-center gap-y-3 mobile:grid-cols-2 tablet:grid-cols-3 pb-6">
+      {productByCategory.length < 1 ? (
+        <ProductListContainer>
           {products.map((product) => (
             <ProductItem products={product} key={product.id} />
           ))}
-        </section>
+        </ProductListContainer>
+      ) : (
+        <ProductListContainer>
+          {productByCategory.map((product) => (
+            <ProductItem products={product} key={product.id} />
+          ))}
+        </ProductListContainer>
       )}
     </>
   )

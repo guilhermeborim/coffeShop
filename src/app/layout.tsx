@@ -1,4 +1,3 @@
-import Container from '@/components/Container'
 import type { Metadata } from 'next'
 import { Sora } from 'next/font/google'
 import AuthProvider from './_providers/next-auth'
@@ -23,9 +22,7 @@ export default function RootLayout({
     <html lang="pt-br">
       <body className={sora.className}>
         <AuthProvider>
-          <ReduxProvider>
-            <Container>{children}</Container>
-          </ReduxProvider>
+          <ReduxProvider>{children}</ReduxProvider>
         </AuthProvider>
       </body>
     </html>

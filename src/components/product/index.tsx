@@ -1,8 +1,15 @@
 import { prisma } from '@/lib/prisma'
+import Container from '../Container'
 import { ProductList } from './productList'
 
 export const ProductRoot = async () => {
   const products = await prisma.product.findMany({})
 
-  return <ProductList products={products} />
+  return (
+    <main>
+      <Container>
+        <ProductList products={products} />
+      </Container>
+    </main>
+  )
 }

@@ -11,6 +11,7 @@ const config = {
   prefix: '',
   theme: {
     screens: {
+      small: { max: '300px' },
       mobile: { max: '640px' },
       tablet: { min: '641px', max: '1007px' },
     },

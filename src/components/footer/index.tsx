@@ -1,7 +1,7 @@
-export const Footer = () => {
+export const Footer = ({ children }: { children: React.ReactNode }) => {
   return (
-    <footer>
-      <h1>Footer</h1>
+    <footer className="bg-white absolute bottom-0 w-full rounded-t-3xl">
+      {children}
     </footer>
   )
 }

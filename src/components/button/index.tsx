@@ -1,6 +1,6 @@
 interface ButtonProps {
   text: string
-  className: string
+  className?: string
 }
 
 export const Button = ({ text, className }: ButtonProps) => {

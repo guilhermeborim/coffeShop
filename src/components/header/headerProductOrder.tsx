@@ -1,4 +1,6 @@
 import { ChevronLeft } from 'lucide-react'
+import Link from 'next/link'
+import Container from '../Container'
 
 interface HeaderProductOrderProps {
   text: string
@@ -13,15 +15,17 @@ export const HeaderProductOrder = ({
 }: HeaderProductOrderProps) => {
   return (
     <header>
-      <section className="flex items-center justify-between">
-        <div>
-          <ChevronLeft size={24} />
-        </div>
-        <div>
-          <h4 className="text-textName font-semibold text-18">{text}</h4>
-        </div>
-        <div>{children}</div>
-      </section>
+      <Container>
+        <section className="flex items-center justify-between">
+          <Link href={'/'}>
+            <ChevronLeft size={24} />
+          </Link>
+          <div>
+            <h4 className="text-textName font-semibold text-18">{text}</h4>
+          </div>
+          <div>{children}</div>
+        </section>
+      </Container>
     </header>
   )
 }
